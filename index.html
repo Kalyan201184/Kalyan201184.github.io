@@ -1,0 +1,321 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Hema Kalyan – Web Developer Portfolio</title>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:wght@500;700&family=Source+Sans+3:wght@400;600&display=swap">
+<style>
+:root{--bg:#f6f8fa;--surface:#fff;--ink:#1b2430;--muted:#55606e;--line:#d9dee4;--accent:#0f766e;--accent-ink:#fff;--soft:#e6f3f1;
+box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){--bg:#10161d;--surface:#18212b;--ink:#e8edf2;--muted:#9aa6b2;--line:#2a3643;--accent:#4fd1c5;--accent-ink:#10161d;--soft:#1b2b33;color-scheme:dark}}
+:root[data-theme="dark"]{--bg:#10161d;--surface:#18212b;--ink:#e8edf2;--muted:#9aa6b2;--line:#2a3643;--accent:#4fd1c5;--accent-ink:#10161d;--soft:#1b2b33;color-scheme:dark}
+*{box-sizing:border-box}
+html{scroll-padding-top:env(safe-area-inset-top,0px);scroll-behavior:smooth}
+body{margin:0;background:var(--bg);color:var(--ink);font:400 17px/1.6 "Source Sans 3",system-ui,-apple-system,"Segoe UI",sans-serif}
+main{max-width:780px;margin:0 auto;padding:24px 22px 72px}
+nav{display:flex;flex-wrap:wrap;gap:6px 20px;align-items:center;padding-bottom:14px;border-bottom:1px solid var(--line)}
+nav a{color:var(--ink);text-decoration:none;font-weight:600}
+nav a:hover{color:var(--accent)}
+nav button{margin-left:auto}
+h1,h2,h3{font-family:"Bricolage Grotesque","Trebuchet MS",system-ui,sans-serif;line-height:1.15;margin:0}
+h1{font-size:clamp(2.4rem,8vw,3.8rem);font-weight:700;letter-spacing:-.02em}
+h2{font-size:1.5rem;font-weight:700;margin-bottom:18px}
+h3{font-size:1.2rem;font-weight:700}
+.hero{padding:48px 0 8px}
+.lede{font-size:1.2rem;color:var(--muted);max-width:56ch;margin:16px 0 0}
+.row{display:flex;flex-wrap:wrap;gap:10px;margin-top:18px}
+section{margin-top:56px}
+button,a.btn{font:600 1rem "Source Sans 3",system-ui,sans-serif;cursor:pointer;border-radius:6px;padding:9px 18px;text-decoration:none;display:inline-block}
+.primary{background:var(--accent);color:var(--accent-ink);border:1px solid var(--accent)}
+.ghost{background:transparent;color:var(--ink);border:1px solid var(--line)}
+.ghost:hover{border-color:var(--accent)}
+:focus-visible{outline:3px solid var(--accent);outline-offset:3px}
+.project{background:var(--surface);border:1px solid var(--line);border-radius:10px;padding:24px;margin-bottom:20px}
+.project.main{border-left:6px solid var(--accent)}
+.project p{margin:10px 0 0;max-width:64ch}
+.tags{display:flex;flex-wrap:wrap;gap:8px;margin:14px 0 0;padding:0;list-style:none}
+.tags li{border:1px solid var(--line);border-radius:999px;padding:2px 12px;font-size:.92rem;color:var(--muted)}
+details{margin-top:14px;border-top:1px solid var(--line);padding-top:12px}
+summary{cursor:pointer;font-weight:600}
+ul.plain{padding-left:20px;margin:10px 0 0}
+ul.plain li{margin:4px 0}
+.note{color:var(--muted);font-size:.95rem;margin:6px 0 0}
+.demo{background:var(--surface);border:1px solid var(--line);border-radius:10px;padding:20px}
+.demo input{width:100%;font:inherit;padding:10px 12px;border:1px solid var(--line);border-radius:6px;background:var(--bg);color:var(--ink)}
+.cols{display:grid;grid-template-columns:1.4fr 1fr;gap:20px;margin-top:16px}
+@media(max-width:620px){.cols{grid-template-columns:1fr}}
+.item{display:flex;justify-content:space-between;align-items:center;gap:10px;padding:10px 0;border-bottom:1px solid var(--line)}
+.item small{color:var(--muted);display:block}
+.qty{display:flex;align-items:center;gap:8px}
+.qty button{padding:2px 10px}
+.total{display:flex;justify-content:space-between;font-weight:700;margin-top:12px}
+.skills{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:18px}
+.skills p{margin:4px 0 0;color:var(--muted)}
+footer{margin-top:56px;color:var(--muted);font-size:.95rem}
+#bar{position:fixed;top:env(safe-area-inset-top,0px);left:0;right:0;height:3px;background:var(--accent);transform:scaleX(0);transform-origin:left;z-index:20}
+@keyframes rise{from{opacity:0;transform:translateY(22px)}to{opacity:1;transform:none}}
+@keyframes pop{0%{background:var(--soft);transform:scale(.97)}60%{transform:scale(1.02)}100%{transform:none}}
+@keyframes blink{50%{opacity:0}}
+@keyframes bump{50%{transform:scale(1.18);color:var(--accent)}}
+.hero>*{animation:rise .8s cubic-bezier(.2,.7,.2,1) both}
+.hero>:nth-child(2){animation-delay:.12s}.hero>:nth-child(3){animation-delay:.24s}.hero>:nth-child(4){animation-delay:.36s}.hero>:nth-child(5){animation-delay:.48s}
+.roles{font-size:1.3rem;font-weight:600;margin:10px 0 0;min-height:1.6em}
+#role{color:var(--accent)}
+.caret{display:inline-block;width:2px;height:1.1em;background:var(--accent);margin-left:3px;vertical-align:-.15em;animation:blink 1s steps(1) infinite}
+.js .reveal{opacity:0;transform:translateY(28px);transition:opacity .7s ease,transform .7s cubic-bezier(.2,.7,.2,1)}
+.js .reveal.on{opacity:1;transform:none}
+.project{transition:transform .25s ease,box-shadow .25s ease,border-color .25s ease}
+.project:hover{transform:perspective(900px) translateY(-4px) rotateX(var(--rx,0deg)) rotateY(var(--ry,0deg));border-color:var(--accent);box-shadow:0 10px 24px rgba(15,118,110,.14)}
+.skills>div{transition:transform .25s ease}
+.skills>div:hover{transform:translateY(-3px)}
+nav a{background:linear-gradient(var(--accent),var(--accent)) left bottom/0 2px no-repeat;transition:background-size .3s ease,color .2s ease}
+nav a:hover{background-size:100% 2px}
+button,a.btn{transition:transform .15s ease,border-color .2s ease,filter .2s ease}
+button:hover,a.btn:hover{transform:translateY(-2px)}
+button:active,a.btn:active{transform:scale(.96)}
+.primary:hover{filter:brightness(1.08)}
+.tags li{transition:background .2s ease,color .2s ease}
+.project:hover .tags li{background:var(--soft);color:var(--ink)}
+.item.pop{animation:pop .45s ease}
+@keyframes drift{from{transform:translate(0,0) scale(1)}to{transform:translate(40px,60px) scale(1.15)}}
+@keyframes letter{from{opacity:0;transform:translateY(.45em) rotate(5deg)}}
+@keyframes tagin{from{opacity:0;transform:scale(.6)}}
+@keyframes ripple{to{transform:scale(4);opacity:0}}
+.blobs{position:fixed;inset:0;z-index:-1;pointer-events:none;overflow:hidden}
+.blobs i{position:absolute;border-radius:50%;filter:blur(70px);opacity:.22;animation:drift 16s ease-in-out infinite alternate}
+.blobs i:nth-child(1){width:340px;height:340px;top:-90px;right:-70px;background:var(--accent)}
+.blobs i:nth-child(2){width:300px;height:300px;bottom:8%;left:-90px;background:#6366f1;animation-duration:21s;animation-direction:alternate-reverse}
+body{transition:background .4s ease,color .4s ease}
+.ch{display:inline-block;animation:letter .7s cubic-bezier(.2,.7,.2,1) backwards}
+h2::after{content:"";display:block;height:3px;width:0;background:var(--accent);margin-top:8px;border-radius:2px;transition:width .8s .25s ease}
+.on h2::after{width:56px}
+.on .tags li{animation:tagin .5s cubic-bezier(.3,1.5,.5,1) backwards}
+.on .tags li:nth-child(1){animation-delay:.3s}.on .tags li:nth-child(2){animation-delay:.38s}.on .tags li:nth-child(3){animation-delay:.46s}.on .tags li:nth-child(4){animation-delay:.54s}.on .tags li:nth-child(5){animation-delay:.62s}.on .tags li:nth-child(6){animation-delay:.7s}
+.on .skills>div{animation:rise .6s ease backwards}
+.on .skills>div:nth-child(1){animation-delay:.2s}.on .skills>div:nth-child(2){animation-delay:.35s}.on .skills>div:nth-child(3){animation-delay:.5s}
+.project{position:relative;overflow:hidden}
+.project>*{position:relative}
+.project::before{content:"";position:absolute;inset:0;background:radial-gradient(260px circle at var(--mx,50%) var(--my,50%),rgba(15,118,110,.14),transparent 70%);opacity:0;transition:opacity .3s ease;pointer-events:none}
+.project:hover::before{opacity:1}
+button,a.btn{position:relative;overflow:hidden}
+.ripple{position:absolute;border-radius:50%;background:currentColor;opacity:.25;transform:scale(0);animation:ripple .6s ease-out forwards;pointer-events:none}
+nav a.active{background-size:100% 2px;color:var(--accent)}
+#sum.bump{display:inline-block;animation:bump .4s ease}
+@media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}*,*::before,*::after{animation:none!important;transition:none!important}.js .reveal{opacity:1;transform:none}.js h2::after{width:56px}}
+</style>
+</head>
+<body>
+<main>
+<div id="bar" aria-hidden="true"></div>
+<nav aria-label="Main">
+<a href="#projects">Projects</a><a href="#demo">Try the cart</a><a href="#skills">Skills</a><a href="#contact">Contact</a>
+<button class="ghost" id="theme" type="button" aria-label="Switch colour theme">Theme</button>
+</nav>
+
+<div class="blobs" aria-hidden="true"><i></i><i></i></div>
+<header class="hero">
+<h1>Hema Kalyan</h1>
+<p class="roles">I’m a <span id="role">web developer</span><span class="caret" aria-hidden="true"></span></p>
+<p class="lede">I build web apps, mostly e-commerce and small tools, from the Flask API to the screen. Based in India, open to freelance and remote work.</p>
+<div class="row">
+<a class="btn primary" href="#projects">See my projects</a>
+<button class="ghost" id="copy" type="button">Copy email</button>
+</div>
+<p class="note" id="copied" role="status"></p>
+</header>
+
+<section id="projects" aria-labelledby="h-work">
+<h2 id="h-work">Projects</h2>
+
+<article class="project main">
+<h3>Flipkart-style e-commerce app</h3>
+<p>A full-stack shopping site with a Python Flask backend and a plain HTML, CSS and JavaScript front end. Shoppers search products as they type, add items to a cart and change quantities, all backed by REST APIs.</p>
+<ul class="tags"><li>Python</li><li>Flask</li><li>JavaScript</li><li>HTML</li><li>CSS</li><li>REST APIs</li></ul>
+<details>
+<summary>What I built and how it works</summary>
+<ul class="plain">
+<li>Flask routes that return product and cart data as JSON</li>
+<li>Front-end code that calls those routes with fetch and redraws the page</li>
+<li>Live search that filters products while typing</li>
+<li>Cart with add, change quantity and remove</li>
+<li>A responsive, store-style layout</li>
+</ul>
+<p class="note">The cart demo below is a small sample made for this page to show the same idea. It is not the full app.</p>
+</details>
+</article>
+
+<article class="project">
+<h3>AppGuard AI</h3>
+<p>A React website for checking whether an app might be fake, deployed on StackBlitz.</p>
+<ul class="tags"><li>React</li><li>JSX</li><li>StackBlitz</li></ul>
+<details>
+<summary>A bug I fixed on this project</summary>
+<p>The build failed with a JSX compile error. The cause was a missing default React import in the component file. I added the import, rebuilt, and confirmed the page rendered.</p>
+</details>
+</article>
+</section>
+
+<section id="demo" aria-labelledby="h-demo">
+<h2 id="h-demo">Try the cart idea</h2>
+<div class="demo">
+<label for="q" class="note">Search sample products</label>
+<input id="q" type="search" placeholder="Try “bag” or “lamp”" autocomplete="off">
+<div class="cols">
+<div id="list" aria-live="polite"></div>
+<div>
+<h3>Your cart</h3>
+<div id="cart"></div>
+<div class="total"><span>Total</span><span id="sum">₹0</span></div>
+</div>
+</div>
+</div>
+</section>
+
+<section id="skills" aria-labelledby="h-skills">
+<h2 id="h-skills">Skills</h2>
+<div class="skills">
+<div><h3>Front end</h3><p>HTML, CSS, JavaScript, React</p></div>
+<div><h3>Back end</h3><p>Python, Flask, REST APIs</p></div>
+<div><h3>Data work</h3><p>Image labeling, data annotation, content moderation, transcription</p></div>
+</div>
+</section>
+
+<section id="contact" aria-labelledby="h-contact">
+<h2 id="h-contact">Contact</h2>
+<p>I’m looking for freelance and remote work. The quickest way to reach me is email.</p>
+<div class="row"><a class="btn primary" href="mailto:bkalyanbkalyan48@gmail.com">bkalyanbkalyan48@gmail.com</a></div>
+</section>
+
+<footer>© Hema Kalyan</footer>
+</main>
+
+<script>
+(function(){
+var EMAIL="bkalyanbkalyan48@gmail.com";
+var root=document.documentElement;
+root.classList.add("js");
+var calm=matchMedia("(prefers-reduced-motion: reduce)").matches;
+try{var t=localStorage.getItem("theme");if(t){root.setAttribute("data-theme",t);}}catch(e){}
+document.getElementById("theme").addEventListener("click",function(){
+  var dark=root.getAttribute("data-theme")==="dark"||(!root.getAttribute("data-theme")&&matchMedia("(prefers-color-scheme: dark)").matches);
+  var next=dark?"light":"dark";root.setAttribute("data-theme",next);
+  try{localStorage.setItem("theme",next);}catch(e){}
+});
+document.getElementById("copy").addEventListener("click",function(){
+  var s=document.getElementById("copied");
+  function ok(){s.textContent="Email copied: "+EMAIL;}
+  try{navigator.clipboard.writeText(EMAIL).then(ok,function(){s.textContent="Email: "+EMAIL;});}catch(e){s.textContent="Email: "+EMAIL;}
+});
+
+var products=[
+{id:1,name:"Canvas tote bag",cat:"Bags",price:499},
+{id:2,name:"Laptop backpack",cat:"Bags",price:1299},
+{id:3,name:"Desk lamp",cat:"Home",price:899},
+{id:4,name:"Steel water bottle",cat:"Home",price:649},
+{id:5,name:"Wireless mouse",cat:"Tech",price:749},
+{id:6,name:"Phone stand",cat:"Tech",price:299}
+];
+var cart={};
+var list=document.getElementById("list"),cartEl=document.getElementById("cart"),sum=document.getElementById("sum"),q=document.getElementById("q");
+function rs(n){return "₹"+n.toLocaleString("en-IN");}
+function drawList(){
+  var term=q.value.trim().toLowerCase();
+  var hits=products.filter(function(p){return (p.name+" "+p.cat).toLowerCase().indexOf(term)>-1;});
+  list.innerHTML="";
+  if(!hits.length){list.textContent="No products match “"+q.value+"”. Try a shorter word.";return;}
+  hits.forEach(function(p){
+    var d=document.createElement("div");d.className="item";
+    d.innerHTML="<div>"+p.name+"<small>"+p.cat+" · "+rs(p.price)+"</small></div>";
+    var b=document.createElement("button");b.type="button";b.className="ghost";b.textContent="Add to cart";
+    b.addEventListener("click",function(){cart[p.id]=(cart[p.id]||0)+1;drawCart(p.id);});
+    d.appendChild(b);list.appendChild(d);
+  });
+}
+function drawCart(hot){
+  cartEl.innerHTML="";var total=0,n=0;
+  products.forEach(function(p){
+    var c=cart[p.id];if(!c)return;n++;total+=c*p.price;
+    var d=document.createElement("div");d.className="item";
+    d.innerHTML="<div>"+p.name+"<small>"+rs(p.price)+" each</small></div>";
+    if(p.id===hot)d.classList.add("pop");
+    var w=document.createElement("div");w.className="qty";
+    function mk(txt,label,fn){var b=document.createElement("button");b.type="button";b.className="ghost";b.textContent=txt;b.setAttribute("aria-label",label+" "+p.name);b.addEventListener("click",fn);return b;}
+    var s=document.createElement("span");s.textContent=c;
+    w.appendChild(mk("−","Remove one",function(){cart[p.id]--;if(cart[p.id]<1)delete cart[p.id];drawCart(p.id);}));
+    w.appendChild(s);
+    w.appendChild(mk("+","Add one",function(){cart[p.id]++;drawCart(p.id);}));
+    d.appendChild(w);cartEl.appendChild(d);
+  });
+  if(!n)cartEl.innerHTML='<p class="note">Your cart is empty. Add something from the list.</p>';
+  countTo(total,hot!==undefined);
+}
+var shown=0,raf;
+function countTo(to,bump){
+  cancelAnimationFrame(raf);
+  if(calm){sum.textContent=rs(to);shown=to;return;}
+  var from=shown,t0=null;
+  if(bump){sum.classList.remove("bump");void sum.offsetWidth;sum.classList.add("bump");}
+  function step(ts){
+    if(!t0)t0=ts;var k=Math.min((ts-t0)/450,1);
+    shown=Math.round(from+(to-from)*(1-Math.pow(1-k,3)));
+    sum.textContent=rs(shown);
+    if(k<1)raf=requestAnimationFrame(step);
+  }
+  raf=requestAnimationFrame(step);
+}
+q.addEventListener("input",drawList);
+
+/* scroll reveal */
+var els=document.querySelectorAll("section, .project");
+els.forEach(function(e){e.classList.add("reveal");});
+if("IntersectionObserver" in window&&!calm){
+  var io=new IntersectionObserver(function(es){es.forEach(function(en){if(en.isIntersecting){en.target.classList.add("on");io.unobserve(en.target);}});},{threshold:.12});
+  els.forEach(function(e){io.observe(e);});
+}else{els.forEach(function(e){e.classList.add("on");});}
+
+/* scroll progress bar */
+var bar=document.getElementById("bar");
+function prog(){var h=document.documentElement.scrollHeight-innerHeight;bar.style.transform="scaleX("+(h>0?Math.min(scrollY/h,1):0)+")";
+  var cur="";["projects","demo","skills","contact"].forEach(function(id){var s=document.getElementById(id);if(s&&s.getBoundingClientRect().top<=140)cur=id;});
+  document.querySelectorAll("nav a").forEach(function(a){a.classList.toggle("active",a.getAttribute("href")==="#"+cur);});}
+addEventListener("scroll",prog,{passive:true});prog();
+
+/* typing roles */
+var roles=["web developer","e-commerce builder","Flask and React learner","data annotation freelancer"],ri=0,ci=0,del=false,roleEl=document.getElementById("role");
+function type(){
+  var w=roles[ri];
+  ci+=del?-1:1;roleEl.textContent=w.slice(0,ci);
+  var wait=del?40:80;
+  if(!del&&ci===w.length){del=true;wait=1600;}
+  else if(del&&ci===0){del=false;ri=(ri+1)%roles.length;wait=350;}
+  setTimeout(type,wait);
+}
+if(!calm){roleEl.textContent="";setTimeout(type,900);}
+
+/* name letter-by-letter */
+if(!calm){var h1=document.querySelector("h1"),txt=h1.textContent;h1.setAttribute("aria-label",txt);h1.textContent="";
+  txt.split("").forEach(function(ch,i){var s=document.createElement("span");s.className="ch";s.setAttribute("aria-hidden","true");s.textContent=ch===" "?"\u00a0":ch;s.style.animationDelay=(0.15+i*0.05)+"s";h1.appendChild(s);});}
+
+/* card spotlight and tilt */
+if(matchMedia("(hover: hover)").matches&&!calm){
+  document.querySelectorAll(".project").forEach(function(c){
+    c.addEventListener("mousemove",function(e){var r=c.getBoundingClientRect(),x=(e.clientX-r.left)/r.width,y=(e.clientY-r.top)/r.height;
+      c.style.setProperty("--mx",(x*100)+"%");c.style.setProperty("--my",(y*100)+"%");
+      c.style.setProperty("--rx",((.5-y)*5)+"deg");c.style.setProperty("--ry",((x-.5)*6)+"deg");});
+    c.addEventListener("mouseleave",function(){c.style.setProperty("--rx","0deg");c.style.setProperty("--ry","0deg");});
+  });
+}
+
+/* button ripple */
+document.addEventListener("click",function(e){
+  var b=e.target.closest("button,a.btn");if(!b||calm)return;
+  var r=b.getBoundingClientRect(),s=Math.max(r.width,r.height),sp=document.createElement("span");
+  sp.className="ripple";sp.style.cssText="width:"+s+"px;height:"+s+"px;left:"+(e.clientX-r.left-s/2)+"px;top:"+(e.clientY-r.top-s/2)+"px";
+  b.appendChild(sp);setTimeout(function(){sp.remove();},650);
+});
+drawList();drawCart();
+})();
+</script>
+</body>
+</html>
